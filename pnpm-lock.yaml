@@ -5,6 +5,7 @@ specifiers:
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@vitejs/plugin-react': 3.1.0
+  lru-cache: ^10.0.0
   react: 18.2.0
   react-dom: 18.2.0
   ts-node: 10.9.1
@@ -12,6 +13,7 @@ specifiers:
   vite: 4.1.4
 
 dependencies:
+  lru-cache: 10.0.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   ts-node: 10.9.1_alpjt73dvgv6kni625hu7f2l4m
@@ -748,6 +750,11 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: false
+
+  /lru-cache/10.0.0:
+    resolution: {integrity: sha512-svTf/fzsKHffP42sujkO/Rjs37BCIsQVRCeNYIm9WN8rgT7ffoUnRtZCqU+6BqcSBdv8gwJeTz8knJpgACeQMw==}
+    engines: {node: 14 || >=16.14}
     dev: false
 
   /lru-cache/5.1.1:
