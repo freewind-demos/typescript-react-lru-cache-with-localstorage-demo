@@ -1,21 +1,17 @@
 import React, {FC, useCallback, useState} from 'react';
 import './Hello.pcss';
 import {fetchSlowData} from "./fetchSlowData";
-import {cache} from "./cache";
+import {LocalStorageCache} from "./LocalStorageCache";
 
 type Props = {};
 
+const cache = new LocalStorageCache();
+
 export const Hello: FC<Props> = ({}) => {
-    const [data, setData] = useState<string>('');
+    const [data, setData] = useState<string | undefined>('');
     const fetchData = useCallback(async (key: string) => {
         setData('');
-        if (cache.has(key)) {
-            setData(cache.get(key) as string)
-        } else {
-            const value = await fetchSlowData(key)
-            cache.set(key, value);
-            setData(value);
-        }
+        setData(await cache.getOrFetch(key, () => fetchSlowData(key)))
     }, [])
     return <div className={'Hello'}>
         <h1>Hello React</h1>
